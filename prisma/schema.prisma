@@ -26,11 +26,10 @@ model Books {
 }
 
 model Members {
-  code String @id
-  name String
-
-  borrowedBook Books?
+  code         String  @id
+  name         String
   penalized    Boolean @default(false)
+  borrowedBook Books?
 
   @@map("members")
 }

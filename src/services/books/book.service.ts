@@ -12,4 +12,10 @@ export class BookService {
   async findOneBook(code: string) {
     return await this.prisma.books.findUnique({ where: { code } });
   }
+  async updateStock(code: string, stockChange: number) {
+    return this.prisma.books.update({
+      where: { code },
+      data: { stock: { increment: stockChange } },
+    });
+  }
 }
